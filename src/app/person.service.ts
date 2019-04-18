@@ -4,8 +4,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './messages.service';
 import { Person } from './person';
-//import { PEOPLE } from './mock-people';
-
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -35,20 +36,54 @@ export class PersonService {
         catchError(this.handleError<Person>(`getPerson id:${id}`,))
       );
   }
+  updatePerson( person: Person): Observable<any> {
+    
+    return this.http.put(this.peopleUrl, person , httpOptions)
+      .pipe(
+        tap(_ => this.log(`updated person id:${person.id}`)),
+        catchError(this.handleError<any>('updatePerson'))
+      )
+  }
+  addPerson(person: Person): Observable<Person> {
+    return this.http.post(this.peopleUrl, person, httpOptions)
+      .pipe(tap((newPerson: Person) => this.log(`added a person id:${newPerson.id}`)),
+      catchError(this.handleError<Person>('addPerson'))
+    );
+  }
+  deletePerson(person: Person | number): Observable<Person> {
+    const id = typeof person === 'number' ? person : person.id;
+    const url = `${this.peopleUrl}/${id}`;
+    
+    return this.http.delete<Person>(url,httpOptions)
+      .pipe(
+        tap(_ => this.log(`deleted person id: ${id}`)),
+        catchError(this.handleError<Person>('deletePerson'))
+      );
+  }
+  searchPerson(term: string): Observable<Person[]> {
+    if(!term.trim()){
+      return of([]);
+    }
+    return this.http.get<Person[]>(`${this.peopleUrl}/?name=${term}`)
+      .pipe(
+        tap(_ => this.log(`found people mathing ${term}`)),
+        catchError(this.handleError<Person[]>('searchPerson',[]))
+      );
+  }
   private log(message: string) {
     this.messageService.add(`PeopleService: ${message}`);
   }
   private handleError<T> (operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
+    return (error: any): Observable<T> => {
  
-    // TODO: send the error to remote logging infrastructure
-    console.error(error); // log to console instead
- 
-    // TODO: better job of transforming error for user consumption
-    this.log(`${operation} failed: ${error.message}`);
- 
-    // Let the app keep running by returning an empty result.
-    return of(result as T);
-  };
-}
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+   
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+   
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 }

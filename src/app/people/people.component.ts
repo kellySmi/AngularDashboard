@@ -18,4 +18,16 @@ export class PeopleComponent implements OnInit {
       this.personService.getPeople()
       .subscribe(people => this.people = people);
   }
+  add(name: string): void {
+    name = name.trim();
+    if(!name) {return;}
+    this.personService.addPerson({ name } as Person)
+    .subscribe(person => {
+      this.people.push(person);
+    })
+  }
+  delete(person: Person): void{
+    this.people = this.people.filter(p => p !== person);// remove the person from the list
+    this.personService.deletePerson(person).subscribe();  
+  }
 }

@@ -9,7 +9,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; /// remove in prod
-import { InMemoryDataService }  from './in-memory-data.service'; // remove in prod
+import { InMemoryDataService }  from './in-memory-data.service';
+import { PersonSearchComponent } from './person-search/person-search.component'; // remove in prod
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InMemoryDataService }  from './in-memory-data.service'; // remove in pr
     PeopleComponent,
     PersonDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    PersonSearchComponent
   ],
   imports: [
     BrowserModule,
