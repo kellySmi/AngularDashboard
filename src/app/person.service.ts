@@ -60,7 +60,7 @@ export class PersonService {
         catchError(this.handleError<Person>('deletePerson'))
       );
   }
-  searchPerson(term: string): Observable<Person[]> {
+  searchPeople(term: string): Observable<Person[]> {
     if(!term.trim()){
       return of([]);
     }
