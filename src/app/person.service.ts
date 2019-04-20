@@ -26,9 +26,22 @@ export class PersonService {
         catchError(this.handleError<Person[]>('getPeople', []))
     );
   }
+    /** GET person by id. Return `undefined` when id not found */
+  getPersonNo404<Data>(id: number): Observable<Person> {
+  const url = `${this.peopleUrl}/?id=${id}`;
+  return this.http.get<Person[]>(url)
+    .pipe(
+      map(people => people[0]), // returns a {0|1} element array
+      tap(p => {
+        const outcome = p ? `fetched` : `did not find`;
+        this.log(`${outcome} person id: ${id}`);
+      }),
+      catchError(this.handleError<Person>(`getPerson id: ${id}`))
+    );
+  }
+  /** GET person by id. Will 404 if id not found */
   getPerson(id: number): Observable<Person> {
     this.messageService.add(`People Service: Person id: ${id}`);
-    //return of(PEOPLE.find(person =>  person.id == id));
     const url = `${this.peopleUrl}/${id}`;
     return this.http.get<Person>(url)
       .pipe(

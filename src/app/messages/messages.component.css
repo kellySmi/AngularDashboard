@@ -1,3 +1,10 @@
+#message-wrapper{
+  background-color: rgb(221, 167, 228);
+  text-align:center;
+  border: 7px groove #ccc;
+  width:40%;
+  height:15%;
+}
 h2 {
   color: red;
   font-family: Arial, Helvetica, sans-serif;

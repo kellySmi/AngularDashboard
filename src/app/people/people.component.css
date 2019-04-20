@@ -1,3 +1,11 @@
+#peopleWrapper{
+  background-color:rgb(50, 191, 210);
+  text-align:center;
+  border: 7px groove #ccc;
+  width:25%;
+  height:75%;
+  border-radius: 5px;
+}
 .people {
   margin: 0 0 2em 0;
   list-style-type: none;
@@ -25,7 +33,7 @@
   text-decoration: none;
   position: relative;
   display: block;
-  width: 250px;
+  width: 60%;
 }
 
 .people a:hover {

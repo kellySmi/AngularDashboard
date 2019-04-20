@@ -1,13 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class='app-frame'>
   <h1>
     {{ title }}
   </h1>
   <nav>
     <a routerLink="/people">People</a>&nbsp;
-    <a routerLink="/dashboard"> Dashboard </a>
+    <a routerLink="/dashboard"> Leaderboard </a>
   </nav>
+  <hr />
+  <app-person-search></app-person-search>
   <router-outlet></router-outlet>
-  <app-messages></app-messages>
+
 </div>
 

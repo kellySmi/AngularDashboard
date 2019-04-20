@@ -1,4 +1,12 @@
-[class*='col-'] {
+#dashboard-wrapper{
+  background-color:rgb(224, 163, 105);
+  text-align:center;
+  border: 7px groove #ccc;
+  width:20%;
+  height:33%;
+  border-radius: 5px;
+}
+class*='col-'] {
   float: left;
   padding-right: 20px;
   padding-bottom: 20px;
@@ -22,19 +30,22 @@ h4 {
   position: relative;
 }
 .grid {
-  margin: 0;
+  margin: 0;  
 }
-.col-1-4 {
-  width: 25%;
+
+.col-1-10 {
+  width: 10%;
+  font-size: 14px;
 }
 .module {
-  padding: 20px;
+  padding: 5px;
   text-align: center;
   color: #eee;
-  max-height: 120px;
-  min-width: 120px;
-  background-color: #607d8b;
-  border-radius: 2px;
+  max-height: 60px;
+  min-width: 80px;
+  background-color: #70bbe0;
+  border-radius: 5px;
+ margin:auto;
 }
 .module:hover {
   background-color: #eee;
@@ -43,6 +54,7 @@ h4 {
 }
 .grid-pad {
   padding: 10px 0;
+  
 }
 .grid-pad > [class*='col-']:last-of-type {
   padding-right: 20px;

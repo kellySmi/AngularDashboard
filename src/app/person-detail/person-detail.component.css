@@ -1,3 +1,11 @@
+.person-detail{
+  background-color:rgb(103, 100, 119);
+  text-align:center;
+  border: 7px groove #ccc;
+  width:50%;
+  height:33%;
+  border-radius: 5px;
+}
 label {
   display: inline-block;
   width: 3em;

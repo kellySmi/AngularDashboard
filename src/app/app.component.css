@@ -1,6 +1,14 @@
+.app-frame{
+    background-color: #167313;
+    text-align:center;
+    border: 7px groove #ccc;
+    width:100%;
+    height:100%;
+    min-height: 780px;
+}
 h1 {
-  font-size: 1.2em;
-  color: #999;
+  font-size: 2em;
+  color: #000;
   margin-bottom: 0;
 }
 h2 {
@@ -14,7 +22,7 @@ nav a {
   margin-top: 10px;
   display: inline-block;
   background-color: #eee;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 nav a:visited, a:link {
   color: #607d8b;

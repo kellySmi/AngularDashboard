@@ -1,3 +1,12 @@
+#search-component{
+  background-color: rgb(203, 217, 41);
+  text-align:center;
+  border: 7px groove #ccc;
+  width:25%;
+  height:25%;
+  float:right;
+  border-radius: 4px;
+}
 .search-result li {
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;

@@ -10,14 +10,14 @@ export class InMemoryDataService implements InMemoryDbService {
     const people = [
       { id: 11, name: 'Joe' },
       { id: 12, name: 'Marco'},
-      { id: 13, name:  'Horatio'},
-      { id: 14, name:  'Cheryl'},
-      { id: 15, name: 'Magnolia' },
-      { id: 16, name: 'Roger' },
-      { id: 17, name: 'Diane' },
-      { id: 18, name: 'Drake' },
-      { id: 19, name: 'Magnus' },
-      { id: 20, name: 'Chastity' }
+      { id: 13, name: 'Horatio'},
+      { id: 14, name: 'Cheryl'},
+      { id: 15, name: 'Magnolia'},
+      { id: 16, name: 'Roger'},
+      { id: 17, name: 'Diane'},
+      { id: 18, name: 'Drake'},
+      { id: 19, name: 'Magnus'},
+      { id: 20, name: 'Chastity'}
     ];
     return {people};
   }
